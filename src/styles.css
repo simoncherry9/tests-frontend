@@ -6,6 +6,8 @@ body {
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
+    background: rgb(131, 58, 180);
+    background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 100, 29, 1) 66%, rgba(69, 199, 252, 1) 100%);
 }
 
 .text-center {
