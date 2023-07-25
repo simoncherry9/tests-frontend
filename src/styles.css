@@ -17,3 +17,11 @@ body {
 .full-width {
     width: 100%;
 }
+
+.mr10 {
+    margin-right: 10px !important;
+}
+
+.ml70 {
+    margin-left: 70px !important;
+}

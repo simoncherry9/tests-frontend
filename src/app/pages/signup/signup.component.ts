@@ -21,8 +21,11 @@ export class SignupComponent implements OnInit {
 
   constructor(private userService: UserService, private snack: MatSnackBar) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
 
+  validateEmail(email: string): boolean {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
   }
 
   formSubmit() {
@@ -39,6 +42,15 @@ export class SignupComponent implements OnInit {
 
     if (this.user.email == '' || this.user.email == null) {
       this.snack.open("El email es requerido", "Aceptar", {
+        duration: 3000,
+        verticalPosition: 'top',
+        horizontalPosition: 'right'
+      });
+      return;
+    }
+
+    if (!this.validateEmail(this.user.email)) {
+      this.snack.open("El email ingresado no es válido", "Aceptar", {
         duration: 3000,
         verticalPosition: 'top',
         horizontalPosition: 'right'
