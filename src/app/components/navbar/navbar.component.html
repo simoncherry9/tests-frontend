@@ -10,21 +10,36 @@
             aria-label="Example icon-button with share icon">
             <mat-icon>add_circle_outline</mat-icon>
         </button>
+
         <button a [routerLink]="'/'" mat-icon-button class="example-icon"
             aria-label="Example icon-button with share icon">
             <mat-icon>task_alt</mat-icon>
         </button>
+
         <button a [routerLink]="'/'" mat-icon-button class="example-icon"
             aria-label="Example icon-button with share icon">
             <mat-icon>format_list_bulleted</mat-icon>
         </button>
-        <button a [routerLink]="'/signup'" mat-icon-button class="example-icon"
+
+        <button a *ngIf="!login.isLoggedIn()" [routerLink]="'/login'" mat-icon-button class="example-icon favorite-icon"
+            aria-label="Example icon-button with heart icon">
+            <mat-icon>account_circle</mat-icon>
+        </button>
+
+        <button a *ngIf="!login.isLoggedIn()" [routerLink]="'/signup'" mat-icon-button class="example-icon"
             aria-label="Example icon-button with share icon">
             <mat-icon>person_add</mat-icon>
         </button>
-        <button a [routerLink]="'/login'" mat-icon-button class="example-icon favorite-icon"
+
+        <button mat-button [matMenuTriggerFor]="userMenu" *ngIf="isLoggedIn && user" class="example-icon favorite-icon"
             aria-label="Example icon-button with heart icon">
-            <mat-icon>login</mat-icon>
+            {{ user.username }}
         </button>
+
+        <mat-menu #userMenu="matMenu">
+            <button mat-menu-item>Editar cuenta</button>
+            <button mat-menu-item (click)="logout()">Cerrar sesión</button>
+        </mat-menu>
+
     </mat-toolbar>
 </p>
