@@ -1,45 +1,26 @@
-<p>
-    <mat-toolbar color="primary">
-        <button a [routerLink]="'/home'" mat-icon-button class="example-icon"
-            aria-label="Example icon-button with menu icon">
-            <mat-icon>quiz</mat-icon>
-        </button>
-        <span>TestToDay</span>
-        <span class="example-spacer"></span>
-        <button a [routerLink]="'/'" mat-icon-button class="example-icon"
-            aria-label="Example icon-button with share icon">
-            <mat-icon>add_circle_outline</mat-icon>
-        </button>
+<mat-toolbar color="primary" class="containere-blue animate__animated animate__fadeInDown">
+    <a [routerLink]="'/'" mat-icon-button class="example-icon" arial-label="Example icon-button with menu icon">
+        <mat-icon>quiz</mat-icon>
+    </a>
+    <span>TestToDay</span>
+    <span class="example-spacer"></span>
 
-        <button a [routerLink]="'/'" mat-icon-button class="example-icon"
-            aria-label="Example icon-button with share icon">
-            <mat-icon>task_alt</mat-icon>
-        </button>
+    <button mat-button [matMenuTriggerFor]="userMenu2" *ngIf="!isLoggedIn" class="example-icon favorite-icon"
+        aria-label="Example icon-button with heart icon">
+        <mat-icon>person</mat-icon>
+    </button>
 
-        <button a [routerLink]="'/'" mat-icon-button class="example-icon"
-            aria-label="Example icon-button with share icon">
-            <mat-icon>format_list_bulleted</mat-icon>
-        </button>
+    <mat-menu #userMenu2="matMenu">
+        <button mat-menu-item [routerLink]="'/login'">Iniciar sesión</button>
+        <button mat-menu-item [routerLink]="'/signup'">Registrarme</button>
+    </mat-menu>
 
-        <button a *ngIf="!login.isLoggedIn()" [routerLink]="'/login'" mat-icon-button class="example-icon favorite-icon"
-            aria-label="Example icon-button with heart icon">
-            <mat-icon>account_circle</mat-icon>
-        </button>
+    <button mat-button [matMenuTriggerFor]="userMenu" *ngIf="isLoggedIn && user" class="example-icon favorite-icon"
+        aria-label="Example icon-button with heart icon">
+        {{ user.username }}
+    </button>
 
-        <button a *ngIf="!login.isLoggedIn()" [routerLink]="'/signup'" mat-icon-button class="example-icon"
-            aria-label="Example icon-button with share icon">
-            <mat-icon>person_add</mat-icon>
-        </button>
-
-        <button mat-button [matMenuTriggerFor]="userMenu" *ngIf="isLoggedIn && user" class="example-icon favorite-icon"
-            aria-label="Example icon-button with heart icon">
-            {{ user.username }}
-        </button>
-
-        <mat-menu #userMenu="matMenu">
-            <button mat-menu-item>Editar cuenta</button>
-            <button mat-menu-item (click)="logout()">Cerrar sesión</button>
-        </mat-menu>
-
-    </mat-toolbar>
-</p>
+    <mat-menu #userMenu="matMenu">
+        <button mat-menu-item (click)="logout()">Cerrar sesión</button>
+    </mat-menu>
+</mat-toolbar>

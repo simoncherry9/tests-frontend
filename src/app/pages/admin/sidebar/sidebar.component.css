@@ -1,9 +1,7 @@
-.containere-blue {
+.container-side {
+    border-radius: 20px;
     box-shadow: 2px 14px 43px 0px rgba(0, 0, 0, 0.6);
     -webkit-box-shadow: 2px 14px 43px 0px rgba(0, 0, 0, 0.6);
     -moz-box-shadow: 2px 14px 43px 0px rgba(0, 0, 0, 0.6);
-}
-
-.example-spacer {
-    flex: 1 1 auto;
+    margin-top: 20px;
 }

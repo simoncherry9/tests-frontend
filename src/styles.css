@@ -6,8 +6,9 @@ body {
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
-    background: rgb(131, 58, 180);
-    background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 100, 29, 1) 66%, rgba(69, 199, 252, 1) 100%);
+    background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
+    /*background: rgb(131, 58, 180);
+    background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 100, 29, 1) 66%, rgba(69, 199, 252, 1) 100%);*/
 }
 
 .text-center {
@@ -16,12 +17,4 @@ body {
 
 .full-width {
     width: 100%;
-}
-
-.mr10 {
-    margin-right: 10px !important;
-}
-
-.ml70 {
-    margin-left: 70px !important;
 }
